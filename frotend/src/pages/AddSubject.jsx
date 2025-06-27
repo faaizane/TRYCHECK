@@ -25,7 +25,7 @@ export default function AddSubject() {
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (!token) return;
-    axios.get('/api/subjects', {
+    axios.get('${API_URL}/api/subjects', {
       headers: { Authorization: `Bearer ${token}` }
     })
     .then(res => setSubjects(res.data))
@@ -66,7 +66,7 @@ export default function AddSubject() {
 
     try {
       await axios.post(
-        '/api/subjects',
+        '${API_URL}/api/subjects',
         {
           name: form.name.trim(),
           session: form.session.trim(),
