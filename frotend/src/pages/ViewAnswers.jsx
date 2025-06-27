@@ -151,7 +151,7 @@ export default function ViewAnswers() {
 
   /* Fetch once */
   useEffect(() => {
-    fetch(`/api/submissions/${submissionId}`, {
+    fetch(`${API_URL}/api/submissions/${submissionId}`, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(r => r.json())
