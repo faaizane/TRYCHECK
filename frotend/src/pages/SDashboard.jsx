@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Sidebar        from '../components/SSidebar';
 import StudentHeader  from '../components/SHeader';
-import axios from '../../api/axios'; // 
+import axios from '../api/axios'; // 
 
 export default function SDashboard() {
   // ───────── Local state ───────────────────────────────────────────
