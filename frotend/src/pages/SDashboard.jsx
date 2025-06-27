@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Sidebar        from '../components/SSidebar';
 import StudentHeader  from '../components/SHeader';
+import axios from '../../api/axios'; // 
 
 export default function SDashboard() {
   // ───────── Local state ───────────────────────────────────────────
@@ -21,7 +22,7 @@ export default function SDashboard() {
     const loadExams = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res   = await fetch('${API_URL}/api/exams/available', {
+        const res   = await axios.post('/api/exams/available', {
           headers: { Authorization: `Bearer ${token}` }
         });
         if (!res.ok) throw new Error('Failed to fetch exams');
@@ -50,7 +51,7 @@ export default function SDashboard() {
     const loadRecent = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res   = await fetch('${API_URL}/api/submissions/recent?limit=5', {
+        const res   = await axios.post('/api/submissions/recent?limit=5', {
           headers: { Authorization: `Bearer ${token}` }
         });
         if (!res.ok) throw new Error('Failed to fetch recent results');
