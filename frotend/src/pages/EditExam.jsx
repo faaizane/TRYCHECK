@@ -72,7 +72,7 @@ export default function EditExam() {
       }
       try {
         const token = localStorage.getItem('token');
-        const res = await fetch(``${import.meta.env.VITE_API_URL}/api/subjects?year=${form.year}`, {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/subjects?year=${form.year}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         if (!res.ok) throw new Error();
