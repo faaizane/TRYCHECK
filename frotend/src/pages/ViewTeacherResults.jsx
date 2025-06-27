@@ -138,7 +138,7 @@ export default function ViewResults() {
     async function fetchResults() {
       try {
         const token = localStorage.getItem('token');
-        const res   = await fetch(`${API_URL}/api/exams/${examId}/results`, {
+        const res   = await fetch(`${import.meta.env.VITE_API_URL}/api/exams/${examId}/results`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         if (!res.ok) throw new Error();
