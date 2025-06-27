@@ -15,7 +15,7 @@ export default function ViewResult() {
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch('${API_URL}/api/submissions', {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/submissions`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         if (!res.ok) throw new Error();
