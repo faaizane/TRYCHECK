@@ -23,7 +23,7 @@ export default function TeacherProfile() {
     if (!token) return navigate('/tlogin');
     (async () => {
       try {
-        const res = await fetch('/api/auth/me', {
+        const res = await fetch('${API_URL}/api/auth/me', {
           headers: { Authorization: `Bearer ${token}` }
         });
         if (!res.ok) throw new Error();
