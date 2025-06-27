@@ -40,7 +40,7 @@ export default function StudentManagement() {
     }
 
     axios
-      .get('${API_URL}/api/subjects', {
+      .get(`${import.meta.env.VITE_API_URL}/api/subjects`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       .then(res => setSubjects(res.data))
