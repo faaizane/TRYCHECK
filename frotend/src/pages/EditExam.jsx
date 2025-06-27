@@ -37,7 +37,7 @@ export default function EditExam() {
     async function loadExam() {
       try {
         const token = localStorage.getItem('token');
-        const res = await fetch(`/api/exams/${id}`, {
+        const res = await fetch(`${API_URL}/api/exams/${id}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         if (!res.ok) throw new Error();
@@ -72,7 +72,7 @@ export default function EditExam() {
       }
       try {
         const token = localStorage.getItem('token');
-        const res = await fetch(`/api/subjects?year=${form.year}`, {
+        const res = await fetch(`${API_URL}/api/subjects?year=${form.year}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         if (!res.ok) throw new Error();
@@ -127,7 +127,7 @@ export default function EditExam() {
     const fd = new FormData(); fd.append('file', file);
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('/api/exams/upload', {
+      const res = await fetch('${API_URL}/api/exams/upload', {
         method:'POST', body:fd,
         headers:{ Authorization:`Bearer ${token}` }
       });
@@ -155,7 +155,7 @@ export default function EditExam() {
     };
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch(`/api/exams/${id}`, {
+      const res = await fetch(`${API_URL}/api/exams/${id}`, {
         method:'PUT',
         headers:{
           'Content-Type':'application/json',
