@@ -15,7 +15,7 @@ export default function ViewResultDetail() {
   const token = localStorage.getItem('token');
 
   useEffect(() => {
-    fetch(`${API_URL}/api/submissions/subject/${subjectId}`, {
+    fetch(`${import.meta.env.VITE_API_URL}/api/submissions/subject/${subjectId}`, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(res => res.json())
