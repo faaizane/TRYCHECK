@@ -21,7 +21,7 @@ export default function SDashboard() {
     const loadExams = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res   = await fetch('/api/exams/available', {
+        const res   = await fetch('${API_URL}/api/exams/available', {
           headers: { Authorization: `Bearer ${token}` }
         });
         if (!res.ok) throw new Error('Failed to fetch exams');
@@ -50,7 +50,7 @@ export default function SDashboard() {
     const loadRecent = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res   = await fetch('/api/submissions/recent?limit=5', {
+        const res   = await fetch('${API_URL}/api/submissions/recent?limit=5', {
           headers: { Authorization: `Bearer ${token}` }
         });
         if (!res.ok) throw new Error('Failed to fetch recent results');
