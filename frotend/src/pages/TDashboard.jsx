@@ -20,7 +20,7 @@ export default function Dashboard() {
   useEffect(() => {
     async function loadUser() {
       try {
-        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/me', {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/me`, {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         });
         const { user } = await res.json();
@@ -35,7 +35,7 @@ export default function Dashboard() {
   useEffect(() => {
     async function loadExams() {
       try {
-        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/exams/recent', {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/exams/recent`, {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         });
         const data = await res.json();
