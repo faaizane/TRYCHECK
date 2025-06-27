@@ -20,7 +20,7 @@ export default function Dashboard() {
   useEffect(() => {
     async function loadUser() {
       try {
-        const res = await fetch('/api/auth/me', {
+        const res = await fetch('${API_URL}/api/auth/me', {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         });
         const { user } = await res.json();
@@ -35,7 +35,7 @@ export default function Dashboard() {
   useEffect(() => {
     async function loadExams() {
       try {
-        const res = await fetch('/api/exams/recent', {
+        const res = await fetch('${API_URL}/api/exams/recent', {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         });
         const data = await res.json();
@@ -59,7 +59,7 @@ export default function Dashboard() {
   const handleDeleteClick = async id => {
     if (!window.confirm('Are you sure you want to delete this exam?')) return;
     try {
-      const res = await fetch(`/api/exams/${id}`, {
+      const res = await fetch(`${API_URL}/api/exams/${id}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
