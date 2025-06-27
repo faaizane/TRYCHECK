@@ -660,7 +660,7 @@ export default function GiveExam() {
     if (!examId) return;
     (async () => {
       try {
-        const res = await fetch(`/api/exams/${examId}/progress`, {
+        const res = await fetch(`${API_URL}/api/exams/${examId}/progress`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         if (res.ok) {
@@ -681,7 +681,7 @@ export default function GiveExam() {
     if (!examId) return navigate(-1);
     (async () => {
       try {
-        const res = await fetch(`/api/exams/${examId}/student`, {
+        const res = await fetch(`${API_URL}/api/exams/${examId}/student`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         if (!res.ok) throw new Error();
@@ -745,7 +745,7 @@ export default function GiveExam() {
     if (!submitted && exam && timeLeft != null) {
       (async () => {
         try {
-          await fetch(`/api/exams/${examId}/progress`, {
+          await fetch(`${API_URL}/api/exams/${examId}/progress`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -783,7 +783,7 @@ export default function GiveExam() {
 
     const interval = setInterval(async () => {
       try {
-        const res = await fetch(`/api/exams/${examId}/progress`, {
+        const res = await fetch(`${API_URL}/api/exams/${examId}/progress`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         if (res.status === 404) {
@@ -818,7 +818,7 @@ export default function GiveExam() {
     setScore(rawScore);
 
     try {
-      await fetch(`/api/exams/${examId}/submit`, {
+      await fetch(`${API_URL}/api/exams/${examId}/submit`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -827,7 +827,7 @@ export default function GiveExam() {
         body: JSON.stringify({ answers: answersArr, score: rawScore })
       });
 
-      await fetch(`/api/exams/${examId}/progress`, {
+      await fetch(`${API_URL}/api/exams/${examId}/progress`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}` }
       });
