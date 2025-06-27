@@ -34,7 +34,7 @@ export default function CreateExam() {
       }
       try {
         const token = localStorage.getItem('token');
-        const res = await fetch(`${API_URL}/api/subjects?year=${form.year}`, {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/subjects?year=${form.year}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         if (!res.ok) throw new Error();
@@ -91,7 +91,7 @@ export default function CreateExam() {
     const fd = new FormData(); fd.append('file', file);
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('${API_URL}/api/exams/upload', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/exams/upload`, {
         method:'POST', body:fd,
         headers:{ Authorization:`Bearer ${token}` }
       });
@@ -119,7 +119,7 @@ export default function CreateExam() {
     };
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('${API_URL}/api/exams/create', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/exams/create`, {
         method:'POST',
         headers:{
           'Content-Type':'application/json',
