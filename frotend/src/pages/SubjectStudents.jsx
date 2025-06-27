@@ -51,7 +51,7 @@ export default function SubjectStudents() {
 
   // Fetch subject metadata
   const fetchSubject = () => {
-    axios.get(`/api/subjects/${id}`, { headers: { Authorization: `Bearer ${token}` } })
+    axios.get(`${API_URL}/api/subjects/${id}`, { headers: { Authorization: `Bearer ${token}` } })
       .then(res => {
         setSubjectName(res.data.name);
         setSubjectSem(parseInt(res.data.semester, 10));
@@ -65,17 +65,17 @@ export default function SubjectStudents() {
 
   // Fetch enrolled students
   const fetchStudents = () => {
-    axios.get(`/api/subjects/${id}/students`, { headers: { Authorization: `Bearer ${token}` } })
+    axios.get(`${API_URL}/api/subjects/${id}/students`, { headers: { Authorization: `Bearer ${token}` } })
       .then(res => setStudents(res.data.sort((a, b) => a.name.localeCompare(b.name))))
       .catch(console.error);
   };
 
   // Fetch bulk‐add metadata
   const fetchMetadata = () => {
-    axios.get('/api/users/departments', { headers: { Authorization: `Bearer ${token}` } })
+    axios.get('${API_URL}/api/users/departments', { headers: { Authorization: `Bearer ${token}` } })
       .then(res => setDepartments(res.data))
       .catch(console.error);
-    axios.get('/api/users/semesters', { headers: { Authorization: `Bearer ${token}` } })
+    axios.get('${API_URL}/api/users/semesters', { headers: { Authorization: `Bearer ${token}` } })
       .then(res => setSemesters(res.data))
       .catch(console.error);
   };
@@ -94,7 +94,7 @@ export default function SubjectStudents() {
     }
     try {
       await axios.post(
-        `/api/subjects/${id}/students/bulk`,
+        `${API_URL}/api/subjects/${id}/students/bulk`,
         { department: bulkDept, semester: bulkSem },
         { headers: { Authorization: `Bearer ${token}` } }
       );
