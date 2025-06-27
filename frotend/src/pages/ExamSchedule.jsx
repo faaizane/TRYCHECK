@@ -27,7 +27,7 @@ export default function ExamSchedule() {
       try {
         const token = localStorage.getItem('token');
         const query = new URLSearchParams({ year, session, semester }).toString();
-        const res = await fetch(`/api/exams/filtered?${query}`, {
+        const res = await fetch(`${API_URL}/api/exams/filtered?${query}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (!res.ok) throw new Error();
@@ -54,7 +54,7 @@ export default function ExamSchedule() {
     if (!window.confirm('Are you sure you want to delete this exam?')) return;
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch(`/api/exams/${id}`, {
+      const res = await fetch(`${API_URL}/api/exams/${id}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}` }
       });
