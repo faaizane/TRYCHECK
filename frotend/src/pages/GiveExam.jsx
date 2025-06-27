@@ -763,7 +763,7 @@ export default function GiveExam() {
   // === Release camera on exit ===
   useEffect(() => {
     const release = () => {
-      const url = 'http://192.168.10.17:5000/release_camera';
+      const url = 'myoes-production-aba7.up.railway.app/release_camera';
       if (navigator.sendBeacon) {
         navigator.sendBeacon(url);
       } else {
@@ -844,7 +844,7 @@ export default function GiveExam() {
 
   // === Updated Proctoring feed URL (without studentId) ===
   const streamUrl =
-    `http://192.168.10.17:5000/video_feed`
+    `myoes-production-aba7.up.railway.app/video_feed`
     + `?exam=${examId}`
     + `&token=${encodeURIComponent(token)}`;
 
