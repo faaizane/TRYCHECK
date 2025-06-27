@@ -1,7 +1,7 @@
 // src/pages/SLogin.jsx
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from '../../api/axios'; // 
+import axios from '../api/axios'; // 
 
 export default function SLogin() {
   const [regno, setRegno]       = useState('');
