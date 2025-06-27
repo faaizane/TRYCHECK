@@ -1,6 +1,7 @@
 // src/pages/SLogin.jsx
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from '../../api/axios'; // 
 
 export default function SLogin() {
   const [regno, setRegno]       = useState('');
@@ -19,7 +20,7 @@ export default function SLogin() {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      const res = await fetch('${API_URL}/api/auth/login', {
+      const res = await axios.post('/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: regno, password })
