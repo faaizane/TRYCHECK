@@ -14,7 +14,7 @@ export default function TakeExam() {
     async function loadAvailable() {
       try {
         const token = localStorage.getItem('token');
-        const res = await fetch('${API_URL}/api/exams/available?includeAttempted=true', {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/exams/available?includeAttempted=true`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         if (!res.ok) throw new Error('Failed to load exams');
