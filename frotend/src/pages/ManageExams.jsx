@@ -19,7 +19,7 @@ export default function ManageExams() {
     async function fetchGroupedExams() {
       try {
         const token = localStorage.getItem('token');
-        const res = await fetch('${API_URL}/api/exams/grouped', {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/exams/grouped`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (!res.ok) throw new Error('Failed to fetch');
