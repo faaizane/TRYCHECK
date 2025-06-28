@@ -72,10 +72,10 @@ export default function SubjectStudents() {
 
   // Fetch bulk‐add metadata
   const fetchMetadata = () => {
-    axios.get('`${import.meta.env.VITE_API_URL}/api/users/departments', { headers: { Authorization: `Bearer ${token}` } })
+    axios.get(`${import.meta.env.VITE_API_URL}/api/users/departments', { headers: { Authorization: `Bearer ${token}` } })
       .then(res => setDepartments(res.data))
       .catch(console.error);
-    axios.get('`${import.meta.env.VITE_API_URL}/api/users/semesters', { headers: { Authorization: `Bearer ${token}` } })
+    axios.get(`${import.meta.env.VITE_API_URL}/api/users/semesters', { headers: { Authorization: `Bearer ${token}` } })
       .then(res => setSemesters(res.data))
       .catch(console.error);
   };
